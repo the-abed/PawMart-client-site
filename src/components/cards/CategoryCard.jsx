@@ -1,28 +1,26 @@
 import React from "react";
-import { useNavigate } from "react-router";
-
-const categories = [
-  { name: "Pets (Adoption)", emoji: "🐶", path: "/products?category=pets" },
-  { name: "Pet Food", emoji: "🍖", path: "/products?category=food" },
-  { name: "Accessories", emoji: "🧸", path: "/products?category=accessories" },
-  { name: "Pet Care Products", emoji: "💊", path: "/products?category=care" },
-];
+import { Link } from "react-router";
 
 const CategoryCard = () => {
-  const navigate = useNavigate();
+ const categories = [
+  { name: "Pets (Adoption)", emoji: "🐶", path: "/category/Pets" },
+  { name: "Pet Food", emoji: "🍖", path: "/category/Food" },
+  { name: "Accessories", emoji: "🧸", path: "/category/Accessories" },
+  { name: "Pet Care Products", emoji: "💊", path: "/category/Care Products" },
+];
+
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 p-6 max-w-10/12 mx-auto my-5">
-      {categories.map((category, index) => (
-        <div
+    <div className="grid md:grid-cols-4 gap-6 p-4">
+      {categories.map((cat, index) => (
+        <Link
           key={index}
-          onClick={() => navigate(category.path)}
-          className="cursor-pointer rounded-2xl shadow-md p-6 bg-base-200 hover:bg-base-300 transition-all duration-300 text-center border border-[var(--color-border)]"
-          style={{ color: "var(--color-text-primary)" }}
+          to={cat.path}
+          className="card bg-base-100 dark:bg-base-300 shadow-lg p-6 text-center hover:shadow-xl transition"
         >
-          <div className="text-5xl mb-3">{category.emoji}</div>
-          <h3 className="text-lg font-semibold">{category.name}</h3>
-        </div>
+          <div className="text-4xl mb-2">{cat.emoji}</div>
+          <h3 className="text-lg font-semibold">{cat.name}</h3>
+        </Link>
       ))}
     </div>
   );

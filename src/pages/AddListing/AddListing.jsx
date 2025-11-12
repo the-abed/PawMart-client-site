@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
-import { AuthContext } from "../../providers/AuthContext";
-import { toast } from "react-hot-toast";
+import { toast, Toaster } from "react-hot-toast";
+import { AuthContext } from "../../contexts/AuthContext";
+import LoaderSpinner from "../../components/common/LoaderSpinner";
 
 const AddListing = () => {
   const { user } = useContext(AuthContext);
@@ -43,9 +44,10 @@ const AddListing = () => {
       setLoading(false);
     }
   };
-
+  if(loading) return <LoaderSpinner></LoaderSpinner>;
   return (
     <div className="max-w-2xl mx-auto bg-base-200 dark:bg-base-300 rounded-2xl shadow-lg p-8 my-10">
+        <Toaster position="top-center" reverseOrder={false} />
       <h2 className="text-2xl font-bold text-center mb-6 text-primary">
         🐾 Add New Listing
       </h2>

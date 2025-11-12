@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import ListingCard from "../cards/ListingCard";
 import { div } from "framer-motion/client";
+import LoaderSpinner from "../common/LoaderSpinner";
 
 const RecentListing = () => {
   const [listings, setListings] = useState([]);
@@ -25,7 +26,7 @@ const RecentListing = () => {
   }, []);
 
   if (loading) {
-    return <p className="text-center p-6">Loading recent listings...</p>;
+    return <LoaderSpinner></LoaderSpinner>;
   }
 
   return (

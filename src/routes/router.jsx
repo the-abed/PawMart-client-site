@@ -26,14 +26,15 @@ const router = createBrowserRouter([
       { path: "/register", element: <Register /> },
       { path: "/pets-supplies", element: <PetsAndSupplies /> },
       {
-        path: "/category-filtered-product/:categoryName",
-        element: <CategoryFiltered />,
-      },
+  path: "/category/:categoryName",
+  element: <CategoryFiltered />,
+},
       {
         path: "/listing/:id",
         element: 
-          
+          <PrivateRoute>
             <ListingDetails />
+          </PrivateRoute>
           
         ,
       },

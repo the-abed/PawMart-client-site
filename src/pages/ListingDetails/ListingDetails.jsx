@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import OrderModal from "../../components/modal/OrderModal";
+import LoaderSpinner from "../../components/common/LoaderSpinner";
 
 
 const ListingDetails = ({ currentUser }) => {
@@ -15,7 +16,7 @@ const ListingDetails = ({ currentUser }) => {
       .catch((err) => console.error(err));
   }, [id]);
 
-  if (!listing) return <p>Loading...</p>;
+  if (!listing) return <LoaderSpinner></LoaderSpinner>;
 
   return (
     <div className="p-6 max-w-4xl mx-auto" 
