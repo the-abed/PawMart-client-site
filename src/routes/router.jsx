@@ -31,11 +31,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/listing/:id",
-        element: (
-          <PrivateRoute>
+        element: 
+          
             <ListingDetails />
-          </PrivateRoute>
-        ),
+          
+        ,
       },
       {
         path: "/add-listing",

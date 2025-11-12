@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { LuSunMoon } from "react-icons/lu";
 
 const ThemeController = () => {
   const [theme, setTheme] = useState("system"); // "light" | "mytheme" | "system"
@@ -65,7 +66,7 @@ const ThemeController = () => {
         className="p-2 bg-base-200 rounded-full shadow hover:bg-base-300 transition"
         onClick={() => setOpen(!open)}
       >
-        {theme === "light" ? "☀️" : theme === "mytheme" ? "🌙" : "🖥"}
+        {theme === "light" ? "☀️" : theme === "mytheme" ? "🌙" : <LuSunMoon></LuSunMoon>}
       </button>
 
       {/* Dropdown */}

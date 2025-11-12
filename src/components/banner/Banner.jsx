@@ -28,7 +28,7 @@ const slides = [
 
 export default function Banner() {
   return (
-    <div className="w-full h-[80vh] ">
+    <div className="w-full h-[40vh] sm:h-[60vh] md:h-[70vh] lg:h-[80vh] ">
       <Swiper
         modules={[Autoplay, Pagination, Navigation]}
         autoplay={{ delay: 3500, disableOnInteraction: false }}

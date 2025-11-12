@@ -3,7 +3,11 @@ import React from 'react';
 const Footer = () => {
     return (
         <div>
-            <footer className="footer sm:footer-horizontal bg-base-200 text-base-content p-10 dark">
+            <footer
+  className="footer sm:footer-horizontal bg-base-200 p-10"
+  style={{ color: "var(--color-text-primary)" }}
+>
+
   <aside>
     <svg
       width="50"

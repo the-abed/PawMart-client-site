@@ -1,10 +1,28 @@
-import React from "react";
+import React, { useContext } from "react";
+import AuthForm from "./AuthForm";
+import { AuthContext } from "../../contexts/AuthContext";
 
 const Login = () => {
+  const { signInUser, signInWithGoogle } = useContext(AuthContext);
+
+  const handleLogin = (data) => {
+    signInUser(data.email, data.password)
+      .then(() => alert("Logged in successfully!"))
+      .catch((err) => alert(err.message));
+  };
+
+  const handleGoogleSignIn = () => {
+    signInWithGoogle()
+      .then(() => alert("Logged in with Google!"))
+      .catch((err) => alert(err.message));
+  };
+
   return (
-    <div className="mx-auto">
-      <h2 className="text-3xl">This is Login Page</h2>
-    </div>
+    <AuthForm
+      mode="login"
+      onSubmit={handleLogin}
+      onGoogleSignIn={handleGoogleSignIn}
+    />
   );
 };
 
