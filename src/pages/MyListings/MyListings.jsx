@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { AuthContext } from "../../contexts/AuthContext";
+import LoaderSpinner from "../../components/common/LoaderSpinner";
 
 const MyListings = () => {
   const { user } = useContext(AuthContext);
@@ -39,16 +40,16 @@ console.log(user.email);
       });
   };
 
-  if (loading) return <p className="text-center py-10">Loading...</p>;
+  if (loading) return <LoaderSpinner></LoaderSpinner>;
 
   if (listings.length === 0)
-    return <p className="text-center py-10">You have no listings yet.</p>;
+    return <p className="text-center py-10 dark">You have no listings yet.</p>;
 
   return (
-    <div className="p-4">
+    <div className="p-4 dark">
       <h2 className="text-3xl font-bold mb-6">My Listings</h2>
       <div className="overflow-x-auto">
-        <table className="table w-full border border-gray-200 dark:border-gray-700">
+        <table className="table w-full border border-gray-200 dark:border-gray-700 dark">
           <thead className="bg-base-200 dark:bg-base-300">
             <tr>
               <th>Image</th>

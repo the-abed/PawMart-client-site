@@ -2,17 +2,20 @@ import React, { useContext, useEffect, useState } from "react";
 
 import toast from "react-hot-toast";
 import { AuthContext } from "../../contexts/AuthContext";
+import LoaderSpinner from "../../components/common/LoaderSpinner";
 
 const MyOrders = () => {
   const { user } = useContext(AuthContext); // logged-in user
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  console.log(user.email);
+
   // Fetch orders for the logged-in user
   useEffect(() => {
     if (!user?.email) return;
 
-    fetch(`http://localhost:5000/orders?buyerEmail=${user.email}`)
+    fetch(`http://localhost:5000/myOrders?buyerEmail=${user.email}`)
       .then((res) => res.json())
       .then((data) => {
         setOrders(data);
@@ -25,11 +28,11 @@ const MyOrders = () => {
       });
   }, [user]);
 
-  if (loading) return <p className="text-center py-10">Loading...</p>;
+  if (loading) return <LoaderSpinner></LoaderSpinner>;
   if (orders.length === 0) return <p className="text-center py-10">You have no orders.</p>;
 
   return (
-    <div className="p-4">
+    <div className="p-4 dark">
       <h2 className="text-3xl font-bold mb-6">My Orders</h2>
       <div className="overflow-x-auto">
         <table className="table w-full border border-gray-200 dark:border-gray-700">

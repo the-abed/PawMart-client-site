@@ -4,13 +4,13 @@ import ErrorPage from "../pages/Error/ErrorPage";
 import Home from "../pages/Home/Home";
 import Login from "../pages/Auth/Login";
 import Register from "../pages/Auth/Register";
-import PetsAndSupplies from "../pages/PetsSupplies/PetsAndSupplies";
 import CategoryFiltered from "../pages/CategoryFiltered/CategoryFiltered";
 import ListingDetails from "../pages/ListingDetails/ListingDetails";
 import AddListing from "../pages/AddListing/AddListing";
 import MyListings from "../pages/MyListings/MyListings";
 import MyOrders from "../pages/MyOrders/MyOrders";
 import PrivateRoute from "../routes/PrivateRoute";
+import PetsAndSupplies from "../pages/PetsAndSupplies/PetsAndSupplies";
 
 
 
@@ -24,7 +24,7 @@ const router = createBrowserRouter([
       { index: true , element: <Home></Home> },
       { path: "/login", element: <Login></Login> },
       { path: "/register", element: <Register /> },
-      { path: "/pets-supplies", element: <PetsAndSupplies /> },
+      { path: "/pets-supplies", element: <PetsAndSupplies></PetsAndSupplies>},
       {
   path: "/category/:categoryName",
   element: <CategoryFiltered />,
