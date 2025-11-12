@@ -1,9 +1,10 @@
 import React, { use, useContext, useState } from "react";
 import { AuthContext } from "../../contexts/AuthContext";
+import toast, { Toaster } from "react-hot-toast";
 
 const OrderModal = ({ listing, currentUser, onClose }) => {
-    const { user, signOutUser } = useContext(AuthContext);
-    console.log(user)
+  const { user, signOutUser } = useContext(AuthContext);
+  console.log(user);
   const [formData, setFormData] = useState({
     buyerName: user?.displayName || "",
     email: user?.email || "",
@@ -32,8 +33,8 @@ const OrderModal = ({ listing, currentUser, onClose }) => {
     })
       .then((res) => res.json())
       .then((data) => {
-        alert("✅ Order placed successfully!");
-        onClose();
+        toast.success("✅ Order placed successfully!");
+        setTimeout(() => onClose(), 1200);
       })
       .catch((err) => {
         console.error(err);
@@ -57,10 +58,12 @@ const OrderModal = ({ listing, currentUser, onClose }) => {
           <input
             type="text"
             name="buyerName"
+            placeholder="Name"
             value={formData.buyerName}
             readOnly
             className="w-full p-2 rounded border"
           />
+
           <input
             type="email"
             name="email"
@@ -93,6 +96,7 @@ const OrderModal = ({ listing, currentUser, onClose }) => {
           <input
             type="number"
             name="price"
+            placeholder="Price"
             value={formData.price}
             readOnly
             className="w-full p-2 rounded border"
@@ -143,6 +147,7 @@ const OrderModal = ({ listing, currentUser, onClose }) => {
           </button>
         </form>
       </div>
+      <Toaster position="top-center" reverseOrder={false} />
     </div>
   );
 };

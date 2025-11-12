@@ -28,7 +28,7 @@ const PetsAndSupplies = () => {
   
     return (
       <div className="max-w-10/12 mx-auto my-5">
-          <h2 className="text-5xl font-bold mb-4 text-center text-primary">Recent Listings</h2>
+          <h2 className="text-5xl font-bold mb-4 text-center text-primary">Pets and Supplies</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-6 ">
           {listings.map((listing) => (
             <ListingCard key={listing._id} listing={listing} />

@@ -1,19 +1,20 @@
 import React, { useContext } from "react";
 import AuthForm from "./AuthForm";
 import { AuthContext } from "../../contexts/AuthContext";
+import toast from "react-hot-toast";
 
 const Login = () => {
   const { signInUser, signInWithGoogle } = useContext(AuthContext);
 
   const handleLogin = (data) => {
     signInUser(data.email, data.password)
-      .then(() => alert("Logged in successfully!"))
+      .then(() => toast.success("Logged in successfully!"))
       .catch((err) => alert(err.message));
   };
 
   const handleGoogleSignIn = () => {
     signInWithGoogle()
-      .then(() => alert("Logged in with Google!"))
+      .then(() => toast.success("Logged in with Google!"))
       .catch((err) => alert(err.message));
   };
 

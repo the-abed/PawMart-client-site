@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Toaster } from "react-hot-toast";
 
 const AuthForm = ({ mode = "login", onSubmit, onGoogleSignIn }) => {
   const [formData, setFormData] = useState({
@@ -122,6 +123,7 @@ const AuthForm = ({ mode = "login", onSubmit, onGoogleSignIn }) => {
           Sign in with Google
         </button>
       </div>
+      <Toaster position="top-center" reverseOrder={false} />
     </div>
   );
 };
