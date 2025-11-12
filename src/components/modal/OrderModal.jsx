@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import React, { use, useContext, useState } from "react";
+import { AuthContext } from "../../contexts/AuthContext";
 
 const OrderModal = ({ listing, currentUser, onClose }) => {
+    const { user, signOutUser } = useContext(AuthContext);
+    console.log(user)
   const [formData, setFormData] = useState({
-    buyerName: currentUser?.name || "",
-    email: currentUser?.email || "",
+    buyerName: user?.displayName || "",
+    email: user?.email || "",
     listingId: listing._id,
     listingName: listing.name,
     quantity: listing.category.toLowerCase() === "pets" ? 1 : 1,
