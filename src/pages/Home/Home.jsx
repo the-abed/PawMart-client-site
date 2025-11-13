@@ -10,11 +10,11 @@ const Home = () => {
   return (
     <div>
       <PageTitle title="Home"></PageTitle>
-      <section>
+      <section data-aos="fade-up" data-aos-duration="1200">
         <Banner></Banner>
       </section>
 
-      <section>
+      <section data-aos="fade-left" data-aos-duration="1000">
         <CategoryCard></CategoryCard>
       </section>
 

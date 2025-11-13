@@ -17,6 +17,7 @@ const ListingCard = ({ listing }) => {
     >
       <div
         className="rounded-2xl shadow-md  border transition-all duration-300 hover:shadow-lg flex flex-col justify-between "
+         data-aos="fade-up" data-aos-duration="1000"
         style={{
           backgroundColor: "var(--color-base-100)",
           color: "var(--color-text-primary)",

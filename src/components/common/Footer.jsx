@@ -1,5 +1,6 @@
 import React from 'react';
 import logo from "../../assets/PawMart.png";
+import { Link } from 'react-router';
 
 const Footer = () => {
     return (
@@ -26,8 +27,8 @@ const Footer = () => {
   </nav>
   <nav>
     <h6 className="footer-title">Company</h6>
-    <a className="link link-hover">About us</a>
-    <a className="link link-hover">Contact</a>
+    <Link to="/about" className="link link-hover">About us</Link>
+    <Link to="/contact" className="link link-hover">Contact</Link>
     <a className="link link-hover">Jobs</a>
     <a className="link link-hover">Press kit</a>
   </nav>

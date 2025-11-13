@@ -1,5 +1,6 @@
 import React from "react";
 import { FaPaw, FaHeart, FaHandsHelping, FaHome } from "react-icons/fa";
+import { Typewriter } from "react-simple-typewriter";
 
 const WhyAdopt = () => {
   const adoptFeatures = [
@@ -38,6 +39,15 @@ const WhyAdopt = () => {
           </p>
           <h2 className="text-3xl md:text-4xl font-bold text-secondary">
             Giving Pets a Second Chance
+            <Typewriter
+              words={["Giving Pets a Second Chance"]}
+              loop={1}
+              cursor
+              cursorStyle="|"
+              typeSpeed={100}
+              deleteSpeed={50}
+              delaySpeed={1500}
+            />
           </h2>
         </div>
 
@@ -52,7 +62,9 @@ const WhyAdopt = () => {
                 <h3 className="font-semibold text-lg text-secondary mb-2">
                   {feature.title}
                 </h3>
-                <p className="" style={{ color: "var(--color-text-primary)" }}>{feature.desc}</p>
+                <p className="" style={{ color: "var(--color-text-primary)" }}>
+                  {feature.desc}
+                </p>
               </div>
             </div>
           ))}
