@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { toast, Toaster } from "react-hot-toast";
 import { AuthContext } from "../../contexts/AuthContext";
 import LoaderSpinner from "../../components/common/LoaderSpinner";
+import PageTitle from "../../components/common/PageTitle";
 
 const AddListing = () => {
   const { user } = useContext(AuthContext);
@@ -57,6 +58,7 @@ const AddListing = () => {
       className="max-w-2xl mx-auto bg-base-300 rounded-2xl shadow-lg p-8 my-10 "
       style={{ color: "var(--color-text-primary)" }}
     >
+      <PageTitle>Add-Listing</PageTitle>
       <Toaster position="top-center" reverseOrder={false} />
       <h2 className="text-2xl font-bold text-center mb-6 text-primary">
         🐾 Add New Listing

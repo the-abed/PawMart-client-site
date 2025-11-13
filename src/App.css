@@ -16,7 +16,7 @@
   --color-warning: oklch(60% 0.18 90);
   --color-error: oklch(50% 0.2 30);
   --color-border: oklch(85% 0.03 240);
-  --shadow-color: rgba(0, 0, 0, 0.05);
+  --shadow-color: rgba(0, 0, 0, 0.277);
 }
 
 

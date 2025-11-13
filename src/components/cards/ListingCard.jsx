@@ -27,7 +27,7 @@ const ListingCard = ({ listing }) => {
         <img
           src={listing.image}
           alt={listing.name}
-          className="w-full h-56 object-cover mb-4 rounded-t-2xl"
+          className="w-full h-56 object-cover rounded-t-2xl"
         />
 
        <div className="p-5 bg-base-200">
@@ -40,17 +40,21 @@ const ListingCard = ({ listing }) => {
           {listing.category} • {listing.location}
         </p>
 
-        {/* Price */}
-        <p className="text-lg font-semibold mb-2">
-          Price: {listing.Price === 0 ? "Free" : `৳${listing.Price}`}
-        </p>
-
+       
         {/* Description */}
         <p className="text-sm mb-4" style={{ color: "var(--color-text-primary)" }}>
           {listing.description}
         </p>
+        <hr className="text-gray-400" />
 
-        {/* See Details Button */}
+       <div className="flex justify-between items-center mt-2">
+
+         {/* Price */}
+        <p className="text-lg font-semibold mb-2">
+          Price: {listing.Price === 0 ? "Free" : `৳${listing.Price}`}
+        </p>
+
+         {/* See Details Button */}
         <button
           onClick={handleDetailsClick}
           className="mt-auto px-4 py-2 rounded-lg font-semibold"
@@ -61,6 +65,7 @@ const ListingCard = ({ listing }) => {
         >
           See Details
         </button>
+       </div>
        </div>
       </div>
     </motion.div>
