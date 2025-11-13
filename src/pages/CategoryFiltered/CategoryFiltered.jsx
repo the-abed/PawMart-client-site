@@ -1,26 +1,38 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import LoaderSpinner from "../../components/common/LoaderSpinner";
+import ListingCard from "../../components/cards/ListingCard";
 
 const CategoryFiltered = () => {
   const { categoryName } = useParams();
   const [listings, setListings] = useState([]);
   const [loading, setLoading] = useState(true);
 
+   const categoryApiMap = {
+    "Pets": "http://localhost:5000/categories/pets",
+    "Pet Food": "http://localhost:5000/categories/pet-food",
+    "Accessories": "http://localhost:5000/categories/accessories",
+    "Pet Care Products": "http://localhost:5000/categories/pet-care-products",
+  };
+
   useEffect(() => {
-  if (!categoryName) return;
+    if (!categoryName || !categoryApiMap[categoryName]) return;
 
-  // Capitalize first letter to match DB entries if needed
-  const formattedCategory = categoryName.charAt(0).toUpperCase() + categoryName.slice(1);
+    setLoading(true);
+    fetch(categoryApiMap[categoryName])
+      .then((res) => res.json())
+      .then((data) => {
+        setListings(data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error("Error fetching listings:", err);
+        setLoading(false);
+      });
+  }, [categoryName]);
 
-  fetch(`http://localhost:5000/listings?category=${formattedCategory}`)
-    .then((res) => res.json())
-    .then((data) => {
-      setListings(data);
-      setLoading(false);
-    })
-    .catch((err) => console.error("Error fetching listings:", err));
-}, [categoryName]);
+
+
 
 
   if (loading) return <LoaderSpinner></LoaderSpinner>;
@@ -30,30 +42,9 @@ const CategoryFiltered = () => {
     );
 
   return (
-    <div className="grid md:grid-cols-3 gap-6 p-4">
-      {listings.map((item) => (
-        <div
-          key={item._id}
-          className="card bg-base-100 shadow-xl border border-gray-200 hover:shadow-lg"
-        >
-          <figure>
-            <img
-              src={item.image}
-              alt={item.name}
-              className="h-48 w-full object-cover"
-            />
-          </figure>
-          <div className="card-body">
-            <h2 className="card-title">{item.name}</h2>
-            <p className="text-sm text-gray-600">{item.location}</p>
-            <p className="text-gray-800 font-semibold">
-              {item.category === "Pets"
-                ? "For Adoption"
-                : `Price: $${item.price}`}
-            </p>
-            <p className="text-gray-500">{item.description}</p>
-          </div>
-        </div>
+    <div className="grid md:grid-cols-3 gap-6 p-4 w-10/12 mx-auto my-8">
+      {listings.map((listing) => (
+       <ListingCard key={listing._id} listing={listing}></ListingCard>
       ))}
     </div>
   );

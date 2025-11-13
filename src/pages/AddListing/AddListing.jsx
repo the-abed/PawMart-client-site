@@ -32,7 +32,7 @@ const AddListing = () => {
 
       const data = await res.json();
       if (data.insertedId || data.acknowledged) {
-        toast.success("✅ Listing added successfully!");
+        toast.success(" Listing added successfully!");
         form.reset();
       } else {
         toast.error("Failed to add listing. Try again.");

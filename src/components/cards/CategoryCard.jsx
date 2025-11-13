@@ -2,12 +2,13 @@ import React from "react";
 import { Link } from "react-router";
 
 const CategoryCard = () => {
- const categories = [
+const categories = [
   { name: "Pets (Adoption)", emoji: "🐶", path: "/category/Pets" },
-  { name: "Pet Food", emoji: "🍖", path: "/category/Food" },
+  { name: "Pet Food", emoji: "🍖", path: "/category/Pet Food" },
   { name: "Accessories", emoji: "🧸", path: "/category/Accessories" },
-  { name: "Pet Care Products", emoji: "💊", path: "/category/Care Products" },
+  { name: "Pet Care Products", emoji: "💊", path: "/category/Pet Care Products" },
 ];
+
 
 
   return (

@@ -12,31 +12,27 @@ import MyOrders from "../pages/MyOrders/MyOrders";
 import PrivateRoute from "../routes/PrivateRoute";
 import PetsAndSupplies from "../pages/PetsAndSupplies/PetsAndSupplies";
 
-
-
-
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout></MainLayout>,
     errorElement: <ErrorPage></ErrorPage>,
     children: [
-      { index: true , element: <Home></Home> },
+      { index: true, element: <Home></Home> },
       { path: "/login", element: <Login></Login> },
       { path: "/register", element: <Register /> },
-      { path: "/pets-supplies", element: <PetsAndSupplies></PetsAndSupplies>},
+      { path: "/pets-supplies", element: <PetsAndSupplies></PetsAndSupplies> },
       {
-  path: "/category/:categoryName",
-  element: <CategoryFiltered />,
-},
+        path: "/category/:categoryName",
+        element: <CategoryFiltered />,
+      },
       {
         path: "/listing/:id",
-        element: 
+        element: (
           <PrivateRoute>
             <ListingDetails />
           </PrivateRoute>
-          
-        ,
+        ),
       },
       {
         path: "/add-listing",

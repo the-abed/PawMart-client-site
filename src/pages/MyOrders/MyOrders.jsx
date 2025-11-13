@@ -15,7 +15,7 @@ const MyOrders = () => {
   useEffect(() => {
     if (!user?.email) return;
 
-    fetch(`http://localhost:5000/myOrders?email=${user.email}`)
+    fetch(`https://paw-mart-server-lyart.vercel.app/myOrders?email=${user.email}`)
       .then((res) => res.json())
       .then((data) => {
         setOrders(data);
@@ -29,11 +29,11 @@ const MyOrders = () => {
   }, [user]);
 
   if (loading) return <LoaderSpinner></LoaderSpinner>;
-  if (orders.length === 0) return <p className="text-center py-10">You have no orders.</p>;
+  if (orders.length === 0) return <p className="text-center py-10" style={{ color: "var(--color-text-primary)" }}>You have no orders.</p>;
 
   return (
     <div className="p-4 w-10/12 mx-auto bg-base-100 my-8" style={{ color: "var(--color-text-primary)" }}>     
-     <h2 className="text-3xl font-bold mb-6 text-center text-primary">My Orders</h2>
+     <h2 className="text-3xl font-bold mb-6 text-center text-primary" >My Orders</h2>
       <div className="overflow-x-auto">
         <table className="table w-full border border-gray-200 dark:border-gray-700">
           <thead className="bg-base-200 " style={{ color: "var(--color-text-primary)" }}>

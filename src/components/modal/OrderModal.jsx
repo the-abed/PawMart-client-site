@@ -33,12 +33,12 @@ const OrderModal = ({ listing, currentUser, onClose }) => {
     })
       .then((res) => res.json())
       .then((data) => {
-        toast.success("✅ Order placed successfully!");
+        toast.success(" Order placed successfully!");
         setTimeout(() => onClose(), 1200);
       })
       .catch((err) => {
         console.error(err);
-        alert("❌ Failed to place order");
+        toast.error(" Failed to place order");
       });
   };
 
