@@ -4,6 +4,7 @@ import autoTable from "jspdf-autotable";
 import toast from "react-hot-toast";
 import { AuthContext } from "../../contexts/AuthContext";
 import LoaderSpinner from "../../components/common/LoaderSpinner";
+import PageTitle from "../../components/common/PageTitle";
 
 const MyOrders = () => {
   const { user } = useContext(AuthContext);
@@ -117,6 +118,7 @@ const MyOrders = () => {
       className="p-4 w-10/12 mx-auto bg-base-100 my-8"
       style={{ color: "var(--color-text-primary)" }}
     >
+      <PageTitle title="My Orders"></PageTitle>
       <h2 className="text-3xl font-bold mb-6 text-center text-primary">
         My Orders
       </h2>

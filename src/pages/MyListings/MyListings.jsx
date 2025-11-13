@@ -3,6 +3,7 @@ import toast, { Toaster } from "react-hot-toast";
 import { AuthContext } from "../../contexts/AuthContext";
 import LoaderSpinner from "../../components/common/LoaderSpinner";
 import { useNavigate } from "react-router";
+import PageTitle from "../../components/common/PageTitle";
 
 const MyListings = () => {
   const navigate = useNavigate();
@@ -64,6 +65,7 @@ const MyListings = () => {
       className="p-4 w-10/12 mx-auto bg-base-100 my-8 "
       style={{ color: "var(--color-text-primary)" }}
     >
+      <PageTitle title="My Listings"></PageTitle>
       <h2 className="text-3xl font-bold mb-6 text-primary text-center">
         My Listings
       </h2>

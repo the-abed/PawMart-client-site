@@ -4,11 +4,12 @@ import CategoryCard from "../../components/cards/CategoryCard";
 import RecentListing from "../../components/recentListing/RecentListing";
 import WhyAdopt from "../../components/WhyAdopt/WhyAdopt";
 import PetHeroes from "../../components/petHeroes/PetHeroes";
+import PageTitle from "../../components/common/PageTitle";
 
 const Home = () => {
   return (
     <div>
-
+      <PageTitle title="Home"></PageTitle>
       <section>
         <Banner></Banner>
       </section>
@@ -21,7 +22,7 @@ const Home = () => {
         <RecentListing></RecentListing>
     </section>
 
-    <section>
+    <section data-aos="fade-right" data-aos-duration="1000">
       <WhyAdopt></WhyAdopt>
     </section>
 

@@ -58,7 +58,7 @@ const AddListing = () => {
       className="max-w-2xl mx-auto bg-base-300 rounded-2xl shadow-lg p-8 my-10 "
       style={{ color: "var(--color-text-primary)" }}
     >
-      <PageTitle>Add-Listing</PageTitle>
+      <PageTitle title="Add New Listing"></PageTitle>
       <Toaster position="top-center" reverseOrder={false} />
       <h2 className="text-2xl font-bold text-center mb-6 text-primary">
         🐾 Add New Listing

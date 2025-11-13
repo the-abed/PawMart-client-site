@@ -16,7 +16,7 @@ const ListingCard = ({ listing }) => {
       className=" rounded-2xl shadow hover:shadow-lg "
     >
       <div
-        className="rounded-2xl shadow-md  border transition-all duration-300 hover:shadow-lg flex flex-col justify-between"
+        className="rounded-2xl shadow-md  border transition-all duration-300 hover:shadow-lg flex flex-col justify-between "
         style={{
           backgroundColor: "var(--color-base-100)",
           color: "var(--color-text-primary)",
