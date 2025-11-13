@@ -1,26 +1,29 @@
 import React from "react";
 import { Link } from "react-router";
+import { FaDog, FaBone, FaPaw, FaCapsules } from "react-icons/fa";
 
 const CategoryCard = () => {
-const categories = [
-  { name: "Pets (Adoption)", emoji: "🐶", path: "/category/Pets" },
-  { name: "Pet Food", emoji: "🍖", path: "/category/Pet Food" },
-  { name: "Accessories", emoji: "🧸", path: "/category/Accessories" },
-  { name: "Pet Care Products", emoji: "💊", path: "/category/Pet Care Products" },
-];
-
-
+  const categories = [
+    { name: "Pets (Adoption)", icon: <FaDog className="w-10 h-10" />, path: "/category/Pets" },
+    { name: "Pet Food", icon: <FaBone className="w-10 h-10" />, path: "/category/Pet Food" },
+    { name: "Accessories", icon: <FaPaw className="w-10 h-10" />, path: "/category/Accessories" },
+    { name: "Pet Care Products", icon: <FaCapsules className="w-10 h-10" />, path: "/category/Pet Care Products" },
+  ];
 
   return (
-    <div className="grid md:grid-cols-4 gap-6 p-4 w-10/12 mx-auto my-8" style={{ color: "var(--color-primary)" }}>
+    <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6 p-4 w-11/12 mx-auto my-12">
       {categories.map((cat, index) => (
         <Link
           key={index}
           to={cat.path}
-          className="card bg-base-100 dark:bg-base-300 shadow-lg p-6 text-center hover:shadow-xl transition"
+          className="group flex flex-col items-center justify-center p-6 rounded-xl bg-base-100 dark:bg-base-300 shadow-md border border-neutral-200 dark:border-neutral-700 hover:shadow-xl hover:border-primary transition-all text-center"
         >
-          <div className="text-4xl mb-2">{cat.emoji}</div>
-          <h3 className="text-lg font-semibold">{cat.name}</h3>
+          <div className="text-primary mb-3 text-4xl">
+            {cat.icon}
+          </div>
+          <h3 className="font-semibold text-lg text-neutral-900 dark:text-neutral-100 transition-colors group-hover:text-primary">
+            {cat.name}
+          </h3>
         </Link>
       ))}
     </div>

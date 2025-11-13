@@ -1,5 +1,7 @@
 import React from "react";
 import { Typewriter } from "react-simple-typewriter";
+import PageTitle from "./PageTitle";
+
 
 const AboutUs = () => {
   return (
@@ -7,6 +9,7 @@ const AboutUs = () => {
       className="min-h-screen py-24 px-4 md:px-16 transition-colors duration-300"
       style={{ backgroundColor: "var(--color-base-100)", color: "var(--color-text-primary)" }}
     >
+        <PageTitle title="About PawMart" />
       <div className="max-w-5xl mx-auto space-y-12">
         {/* Header */}
         <div className="text-center">

@@ -1,5 +1,6 @@
 import React from "react";
 import { FaTwitter, FaGithub, FaLinkedin, FaEnvelope, FaArrowUp } from "react-icons/fa";
+import PageTitle from "./PageTitle";
 
 const Contact = () => {
   const socials = [
@@ -34,6 +35,7 @@ const Contact = () => {
       className="min-h-screen py-24 px-4 transition-colors duration-300"
       style={{ backgroundColor: "var(--color-base-100)", color: "var(--color-text-primary)" }}
     >
+        <PageTitle title="Contact">Contact</PageTitle>
       <div className="max-w-4xl mx-auto">
         {/* Contact Card */}
         <div
