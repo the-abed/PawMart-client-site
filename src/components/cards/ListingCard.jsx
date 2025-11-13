@@ -30,7 +30,7 @@ const ListingCard = ({ listing }) => {
         />
 
         {/* Name and Category */}
-        <h2 className="text-xl font-bold mb-1">{listing.name}</h2>
+        <h2 className="text-xl font-bold mb-1 text-secondary">{listing.name}</h2>
         <p
           className="text-sm font-medium mb-2"
           style={{ color: "var(--color-text-secondary)" }}

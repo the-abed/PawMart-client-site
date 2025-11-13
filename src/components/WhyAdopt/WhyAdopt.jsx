@@ -31,12 +31,12 @@ const WhyAdopt = () => {
       style={{ color: "var(--color-primary)" }}
     >
       {/* Left Section */}
-      <section className="bg-green-50 py-16 px-6 md:px-12 flex flex-col justify-center shadow-inner">
+      <section className="bg-base-300 py-16 px-6 md:px-12 flex flex-col justify-center shadow-inner">
         <div className="text-center mb-12">
-          <p className="text-pink-500 font-medium mb-2">
+          <p className="text-primary font-medium mb-2">
             Why Adopt From PawMart?
           </p>
-          <h2 className="text-3xl md:text-4xl font-bold text-green-900">
+          <h2 className="text-3xl md:text-4xl font-bold text-secondary">
             Giving Pets a Second Chance
           </h2>
         </div>
@@ -45,14 +45,14 @@ const WhyAdopt = () => {
           {adoptFeatures.map((feature, index) => (
             <div
               key={index}
-              className="flex items-start gap-4 p-6 bg-white rounded-xl shadow hover:shadow-lg transition"
+              className="flex items-start gap-4 p-6 bg-base-200 rounded-xl shadow hover:shadow-lg transition"
             >
               <div>{feature.icon}</div>
               <div>
-                <h3 className="font-semibold text-lg text-green-800 mb-2">
+                <h3 className="font-semibold text-lg text-secondary mb-2">
                   {feature.title}
                 </h3>
-                <p className="text-gray-600">{feature.desc}</p>
+                <p className="" style={{ color: "var(--color-text-primary)" }}>{feature.desc}</p>
               </div>
             </div>
           ))}
