@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
+import LoaderSpinner from "../../components/common/LoaderSpinner";
 
 const CategoryFiltered = () => {
   const { categoryName } = useParams();
@@ -22,7 +23,7 @@ const CategoryFiltered = () => {
 }, [categoryName]);
 
 
-  if (loading) return <p className="text-center py-10">Loading...</p>;
+  if (loading) return <LoaderSpinner></LoaderSpinner>;
   if (listings.length === 0)
     return (
       <p className="text-center py-10">No listings found for {categoryName}</p>

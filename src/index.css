@@ -2,7 +2,7 @@
 @import "tailwindcss";
 @plugin "daisyui";
  @plugin "daisyui" {
-   themes: light --default, dark --prefersdark;
+   themes: light --default, dark ;
  }
 @plugin "daisyui/theme" {
   name: "light";
@@ -20,3 +20,18 @@ body{
 .dark{
   @apply dark:bg-slate-900 dark:text-white
 }
+
+nav .active{
+  @apply bg-primary text-base-200
+}
+
+/* Light mode placeholder */
+::placeholder {
+  color: #9ca3af; /* Tailwind's gray-400 */
+}
+
+/* Dark mode placeholder */
+.dark ::placeholder {
+  color: #6b7280; /* Tailwind's gray-500 */
+}
+

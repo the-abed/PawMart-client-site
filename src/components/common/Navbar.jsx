@@ -49,18 +49,17 @@ const Navbar = () => {
 
   return (
     <div
-      className="navbar bg-base-100 max-w-10/12 mx-auto my-5 rounded-[50px] text-primary shadow-[0_1px_2px_var(--shadow-color)]"
-      style={{ color: "var(--color-text-primary)" }}
+      className="navbar bg-base-100 max-w-10/12 mx-auto my-5 rounded-[50px] text-primary shadow-lg hover:shadow-[0_8px_6px_var(--shadow-color)] transition duration-300 ease-in-out p-4"
+      
     >
       {/* Left: Logo */}
       <div className="navbar-start flex items-center gap-2">
-        <img className="w-32 ml-10" src={logo} alt="PawMart Logo" />
-        <span className="font-bold text-xl">PawMart</span>
+        <img className="w-34 ml-10" src={logo} alt="PawMart Logo" />
       </div>
 
       {/* Center: Links */}
-      <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1 gap-4">
+      <div className="navbar-center hidden lg:flex ">
+        <ul className="menu menu-horizontal px-1 gap-4 ">
           {user ? userLinks : guestLinks}
         </ul>
       </div>

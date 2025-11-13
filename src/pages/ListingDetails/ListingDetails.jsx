@@ -10,7 +10,7 @@ const ListingDetails = ({ currentUser }) => {
   const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/listings/${id}`)
+    fetch(`https://paw-mart-server-lyart.vercel.app/listings/${id}`)
       .then((res) => res.json())
       .then((data) => setListing(data))
       .catch((err) => console.error(err));

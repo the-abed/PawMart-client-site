@@ -9,7 +9,7 @@ const RecentListing = () => {
 
   useEffect(() => {
     // Fetch all listings from the server
-    fetch("http://localhost:5000/listings")
+    fetch("https://paw-mart-server-lyart.vercel.app/listings")
       .then((res) => res.json())
       .then((data) => {
         // Sort by date descending and take the latest 6

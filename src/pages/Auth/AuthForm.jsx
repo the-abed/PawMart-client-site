@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Toaster } from "react-hot-toast";
+import googleLogo from "../../assets/google.png";
 
 const AuthForm = ({ mode = "login", onSubmit, onGoogleSignIn }) => {
   const [formData, setFormData] = useState({
@@ -20,7 +21,7 @@ const AuthForm = ({ mode = "login", onSubmit, onGoogleSignIn }) => {
 
   return (
     <div
-      className="min-h-screen flex items-center justify-center p-6"
+      className=" flex items-center justify-center p-10"
       style={{
         backgroundColor: "var(--color-base-100)",
         color: "var(--color-text-primary)",
@@ -115,11 +116,8 @@ const AuthForm = ({ mode = "login", onSubmit, onGoogleSignIn }) => {
             borderColor: "var(--color-border)",
           }}
         >
-          <img
-            src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
-            alt="Google Logo"
-            className="w-6 h-6"
-          />
+            <img width={28} src={googleLogo} alt="" />
+          
           Sign in with Google
         </button>
       </div>

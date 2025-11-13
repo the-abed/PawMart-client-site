@@ -11,7 +11,7 @@ const CategoryCard = () => {
 
 
   return (
-    <div className="grid md:grid-cols-4 gap-6 p-4">
+    <div className="grid md:grid-cols-4 gap-6 p-4 w-10/12 mx-auto my-8" style={{ color: "var(--color-primary)" }}>
       {categories.map((cat, index) => (
         <Link
           key={index}

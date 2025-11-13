@@ -24,7 +24,7 @@ const AddListing = () => {
     };
 
     try {
-      const res = await fetch("http://localhost:5000/listings", {
+      const res = await fetch("https://paw-mart-server-lyart.vercel.app/listings", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(listingData),
@@ -46,7 +46,7 @@ const AddListing = () => {
   };
   if(loading) return <LoaderSpinner></LoaderSpinner>;
   return (
-    <div className="max-w-2xl mx-auto bg-base-200 dark:bg-base-300 rounded-2xl shadow-lg p-8 my-10">
+    <div className="max-w-2xl mx-auto bg-base-200 rounded-2xl shadow-lg p-8 my-10 " style={{ color: "var(--color-text-primary)" }}>
         <Toaster position="top-center" reverseOrder={false} />
       <h2 className="text-2xl font-bold text-center mb-6 text-primary">
         🐾 Add New Listing
@@ -147,7 +147,7 @@ const AddListing = () => {
             name="email"
             value={user?.email || ""}
             readOnly
-            className="input input-bordered w-full bg-gray-100 dark:bg-gray-800 cursor-not-allowed"
+            className="input input-bordered w-full  cursor-not-allowed"
           />
         </div>
 
