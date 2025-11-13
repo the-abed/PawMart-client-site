@@ -6,6 +6,7 @@ import LoaderSpinner from "../../components/common/LoaderSpinner";
 const AddListing = () => {
   const { user } = useContext(AuthContext);
   const [loading, setLoading] = useState(false);
+  const [category, setCategory] = useState("");
 
   const handleAddListing = async (e) => {
     e.preventDefault();
@@ -24,11 +25,14 @@ const AddListing = () => {
     };
 
     try {
-      const res = await fetch("https://paw-mart-server-lyart.vercel.app/listings", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(listingData),
-      });
+      const res = await fetch(
+        "https://paw-mart-server-lyart.vercel.app/listings",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(listingData),
+        }
+      );
 
       const data = await res.json();
       if (data.insertedId || data.acknowledged) {
@@ -44,10 +48,16 @@ const AddListing = () => {
       setLoading(false);
     }
   };
-  if(loading) return <LoaderSpinner></LoaderSpinner>;
+
+  if (loading) return <LoaderSpinner></LoaderSpinner>;
+
+
   return (
-    <div className="max-w-2xl mx-auto bg-base-200 rounded-2xl shadow-lg p-8 my-10 " style={{ color: "var(--color-text-primary)" }}>
-        <Toaster position="top-center" reverseOrder={false} />
+    <div
+      className="max-w-2xl mx-auto bg-base-300 rounded-2xl shadow-lg p-8 my-10 "
+      style={{ color: "var(--color-text-primary)" }}
+    >
+      <Toaster position="top-center" reverseOrder={false} />
       <h2 className="text-2xl font-bold text-center mb-6 text-primary">
         🐾 Add New Listing
       </h2>
@@ -68,7 +78,12 @@ const AddListing = () => {
         {/* Category */}
         <div>
           <label className="block mb-1 font-semibold">Category</label>
-          <select name="category" className="select select-bordered w-full" required>
+          <select
+            name="category"
+            onChange={(e) => setCategory(e.target.value)}
+            className="select select-bordered w-full"
+            required
+          >
             <option disabled selected>
               Select category
             </option>
@@ -90,6 +105,7 @@ const AddListing = () => {
             min="0"
             step="0.01"
             required
+            disabled={category === "Pets"}
           />
         </div>
 
@@ -130,7 +146,9 @@ const AddListing = () => {
 
         {/* Date */}
         <div>
-          <label className="block mb-1 font-semibold">Pick Up / Availability Date</label>
+          <label className="block mb-1 font-semibold">
+            Pick Up / Availability Date
+          </label>
           <input
             type="date"
             name="date"

@@ -5,7 +5,7 @@ const Footer = () => {
     return (
         <div>
             <footer
-  className="footer sm:footer-horizontal bg-base-200 p-10"
+  className="footer sm:footer-horizontal bg-base-300 p-10"
   style={{ color: "var(--color-text-primary)" }}
 >
 

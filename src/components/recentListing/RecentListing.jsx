@@ -9,14 +9,10 @@ const RecentListing = () => {
 
   useEffect(() => {
     // Fetch all listings from the server
-    fetch("https://paw-mart-server-lyart.vercel.app/listings")
+    fetch("https://paw-mart-server-lyart.vercel.app/recent-listings")
       .then((res) => res.json())
       .then((data) => {
-        // Sort by date descending and take the latest 6
-        const sorted = data
-          .sort((a, b) => new Date(b.date) - new Date(a.date))
-          .slice(0, 6);
-        setListings(sorted);
+        setListings(data);
         setLoading(false);
       })
       .catch((err) => {
@@ -30,7 +26,7 @@ const RecentListing = () => {
   }
 
   return (
-    <div className="max-w-10/12 mx-auto my-5">
+    <div className="py-16 px-4 md:px-16 my-12 w-11/12 mx-auto">
         <h2 className="text-5xl font-bold mb-4 text-center text-primary">Recent Listings</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-6 ">
         {listings.map((listing) => (

@@ -32,10 +32,8 @@ const CategoryFiltered = () => {
   }, [categoryName]);
 
 
-
-
-
   if (loading) return <LoaderSpinner></LoaderSpinner>;
+  
   if (listings.length === 0)
     return (
       <p className="text-center py-10">No listings found for {categoryName}</p>

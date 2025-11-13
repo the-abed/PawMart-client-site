@@ -2,53 +2,51 @@ import React, { useState, useEffect, useRef } from "react";
 import { LuSunMoon } from "react-icons/lu";
 
 const ThemeController = () => {
-  const [theme, setTheme] = useState("system"); // "light" | "mytheme" | "system"
+  const [theme, setTheme] = useState("system");
   const [open, setOpen] = useState(false);
   const dropdownRef = useRef(null);
 
-  // On mount, load saved theme
+  // ✅ Load theme on mount
   useEffect(() => {
-    const saved = localStorage.getItem("theme");
+    const saved = localStorage.getItem("theme") || "system";
+    setTheme(saved);
+
     if (saved === "light" || saved === "mytheme") {
-      setTheme(saved);
       document.documentElement.setAttribute("data-theme", saved);
     } else {
-      setTheme("system");
-      const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-      document.documentElement.setAttribute("data-theme", systemPrefersDark ? "mytheme" : "light");
+      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      document.documentElement.setAttribute("data-theme", prefersDark ? "mytheme" : "light");
     }
   }, []);
 
-  // Apply theme whenever it changes
+  // ✅ Apply and persist theme changes
   useEffect(() => {
     const root = document.documentElement;
 
     if (theme === "light" || theme === "mytheme") {
-      // user-selected override
       root.setAttribute("data-theme", theme);
-      localStorage.setItem("theme", theme);
     } else {
-      // system mode
-      localStorage.removeItem("theme");
-      const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-      root.setAttribute("data-theme", systemPrefersDark ? "mytheme" : "light");
+      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      root.setAttribute("data-theme", prefersDark ? "mytheme" : "light");
     }
+
+    // Always save user preference (including "system")
+    localStorage.setItem("theme", theme);
   }, [theme]);
 
-  // Listen for system changes only if theme = "system"
+  // ✅ Listen for system changes when theme = system
   useEffect(() => {
+    const mq = window.matchMedia("(prefers-color-scheme: dark)");
     const listener = (e) => {
       if (theme === "system") {
         document.documentElement.setAttribute("data-theme", e.matches ? "mytheme" : "light");
       }
     };
-
-    const mq = window.matchMedia("(prefers-color-scheme: dark)");
     mq.addEventListener("change", listener);
     return () => mq.removeEventListener("change", listener);
   }, [theme]);
 
-  // Close dropdown if clicked outside
+  // ✅ Close dropdown if clicked outside
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
@@ -61,12 +59,12 @@ const ThemeController = () => {
 
   return (
     <div className="relative" ref={dropdownRef}>
-      {/* Main Icon Button */}
+      {/* Button */}
       <button
         className="p-2 bg-base-200 rounded-full shadow hover:bg-base-300 transition"
         onClick={() => setOpen(!open)}
       >
-        {theme === "light" ? "☀️" : theme === "mytheme" ? "🌙" : <LuSunMoon></LuSunMoon>}
+        {theme === "light" ? "☀️" : theme === "mytheme" ? "🌙" : <LuSunMoon />}
       </button>
 
       {/* Dropdown */}

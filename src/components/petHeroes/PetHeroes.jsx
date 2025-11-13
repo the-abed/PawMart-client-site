@@ -44,7 +44,7 @@ const PetHeroes = () => {
             key={index}
             whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 200 }}
-            className="bg-base-200 rounded-2xl shadow hover:shadow-lg overflow-hidden text-center"
+            className="bg-base-300 rounded-2xl shadow hover:shadow-lg overflow-hidden text-center"
           >
             <img
               src={hero.img}
