@@ -9,10 +9,10 @@ const CategoryFiltered = () => {
   const [loading, setLoading] = useState(true);
 
    const categoryApiMap = {
-    "Pets": "http://localhost:5000/categories/pets",
-    "Pet Food": "http://localhost:5000/categories/pet-food",
-    "Accessories": "http://localhost:5000/categories/accessories",
-    "Pet Care Products": "http://localhost:5000/categories/pet-care-products",
+    "Pets": "https://paw-mart-server-lyart.vercel.app/categories/pets",
+    "Pet Food": "https://paw-mart-server-lyart.vercel.app/categories/pet-food",
+    "Accessories": "https://paw-mart-server-lyart.vercel.app/categories/accessories",
+    "Pet Care Products": "https://paw-mart-server-lyart.vercel.app/categories/pet-care-products",
   };
 
   useEffect(() => {

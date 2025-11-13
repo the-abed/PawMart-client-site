@@ -19,20 +19,23 @@ const ListingDetails = ({ currentUser }) => {
   if (!listing) return <LoaderSpinner></LoaderSpinner>;
 
   return (
-    <div className="p-6 max-w-4xl mx-auto" 
+    <div className="p-6 max-w-4xl mx-auto flex flex-col md:flex-row gap-6 lg:gap-12 items-center" 
     style={{
         backgroundColor: "var(--color-base-100)",
         color: "var(--color-text-primary)",
         borderColor: "var(--color-border)",
       }}>
-      {/* Image */}
+     <div>
+       {/* Image */}
       <img
         src={listing.image}
         alt={listing.name}
-        className="w-full h-96 object-cover rounded-xl mb-6"
+        className="w-full h-full object-cover rounded-xl mb-6"
       />
+     </div>
 
-      {/* Details */}
+      <div className="flex flex-col gap-5">
+         {/* Details */}
       <h1 className="text-3xl font-bold mb-2">{listing.name}</h1>
       <p className="text-sm font-medium mb-1">Category: {listing.category}</p>
       <p className="text-sm mb-1">Owner: {listing.email}</p>
@@ -54,6 +57,8 @@ const ListingDetails = ({ currentUser }) => {
         🛒 Adopt / Order Now
       </button>
 
+      </div>
+     
       {/* Order Modal */}
       {showModal && (
         <OrderModal

@@ -2,21 +2,32 @@ import React from "react";
 import Banner from "../../components/banner/banner";
 import CategoryCard from "../../components/cards/CategoryCard";
 import RecentListing from "../../components/recentListing/RecentListing";
+import WhyAdopt from "../../components/WhyAdopt/WhyAdopt";
+import PetHeroes from "../../components/petHeroes/PetHeroes";
 
 const Home = () => {
   return (
     <div>
-      <div>
+
+      <section>
         <Banner></Banner>
-      </div>
+      </section>
 
-      <div>
+      <section>
         <CategoryCard></CategoryCard>
-      </div>
+      </section>
 
-    <div>
+    <section>
         <RecentListing></RecentListing>
-    </div>
+    </section>
+
+    <section>
+      <WhyAdopt></WhyAdopt>
+    </section>
+
+    <section>
+      <PetHeroes></PetHeroes>
+    </section>
 
     </div>
   );
