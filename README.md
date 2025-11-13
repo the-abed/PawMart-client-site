@@ -104,7 +104,7 @@ Open your browser at [http://localhost:3000](http://localhost:3000)
 ## Screenshots
 
 **Home Page**
-![Home](./assets/screenshots/home.png)
+![Home](./src/assets/image.png)
 
 **Listings Page**
 ![Listings](./assets/screenshots/listings.png)

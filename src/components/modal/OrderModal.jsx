@@ -4,7 +4,6 @@ import toast, { Toaster } from "react-hot-toast";
 
 const OrderModal = ({ listing, currentUser, onClose }) => {
   const { user, signOutUser } = useContext(AuthContext);
-  console.log(user);
   const [formData, setFormData] = useState({
     buyerName: user?.displayName || "",
     email: user?.email || "",

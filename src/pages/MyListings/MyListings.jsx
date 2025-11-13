@@ -10,7 +10,7 @@ const MyListings = () => {
   const { user } = useContext(AuthContext);
   const [listings, setListings] = useState([]);
   const [loading, setLoading] = useState(true);
-  console.log(user.email);
+  
   // Fetch user's own listings
   useEffect(() => {
     if (!user?.email) return;

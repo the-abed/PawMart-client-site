@@ -38,7 +38,6 @@ const WhyAdopt = () => {
             Why Adopt From PawMart?
           </p>
           <h2 className="text-3xl md:text-4xl font-bold text-secondary">
-            Giving Pets a Second Chance
             <Typewriter
               words={["Giving Pets a Second Chance"]}
               loop={1}
