@@ -1,29 +1,65 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Toaster, toast } from "react-hot-toast";
-import { useNavigate } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 import googleLogo from "../../assets/google.png";
 
+// The AuthForm component handles both Login and Registration screens
+// It decides which screen to show based on the current URL: /login or /register
+
 const AuthForm = ({ onSubmit, onGoogleSignIn }) => {
-  const [mode, setMode] = useState("login"); // login or register
+
+  // mode = "login" OR "register"
+  // This decides which form fields to show
+  const [mode, setMode] = useState("login");
+
+  // All input values stored here
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     image: "",
     password: "",
   });
+
+  // Shows password validation error during registration
   const [passwordError, setPasswordError] = useState("");
 
   const navigate = useNavigate();
+  const location = useLocation();
 
+  // ---------------------------
+  // 🔥 Detect current route and switch mode
+  // If user visits /register → show Register form
+  // If user visits /login → show Login form
+  // ---------------------------
+  useEffect(() => {
+    if (location.pathname === "/register") {
+      setMode("register");
+    } else {
+      setMode("login");
+    }
+  }, [location.pathname]);
+
+  // Handle input changes (email, password, name, image)
   const handleChange = (e) => {
     const { name, value } = e.target;
+
+    // Update formData object
     setFormData((prev) => ({ ...prev, [name]: value }));
 
+    // If password is typed in REGISTER mode → validate it live
     if (name === "password" && mode === "register") {
       validatePassword(value);
     }
   };
 
+  // ---------------------------
+  // 🔐 Password validation (Register only)
+  // Checks:
+  // - At least 1 uppercase letter
+  // - At least 1 lowercase letter
+  // - At least 6 characters
+  // Sets error message if invalid
+  // ---------------------------
   const validatePassword = (password) => {
     const hasUpper = /[A-Z]/.test(password);
     const hasLower = /[a-z]/.test(password);
@@ -36,26 +72,33 @@ const AuthForm = ({ onSubmit, onGoogleSignIn }) => {
     } else if (!isLongEnough) {
       setPasswordError("Password must be at least 6 characters long.");
     } else {
-      setPasswordError("");
+      setPasswordError(""); // valid
     }
   };
 
+  // ---------------------------
+  // 🚀 Main submit handler for Login/Register
+  // Calls parent onSubmit function
+  // Parent returns TRUE if login/register is successful
+  // ---------------------------
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    // Block registration if password is invalid
     if (mode === "register" && passwordError) {
       toast.error("Please fix password requirements before submitting.");
       return;
     }
 
     try {
+      // Call parent's login/register function
       const success = await onSubmit({ ...formData, mode });
 
       if (success) {
         toast.success(`${mode === "login" ? "Login" : "Registration"} successful!`);
-        navigate("/", { replace: true }); // Navigate to home page
-      } else {
-        toast.error("Failed. Please check your credentials or try again.");
+
+        // If login/register success → redirect to home page
+        navigate("/", { replace: true });
       }
     } catch (err) {
       toast.error("Something went wrong. Try again.");
@@ -76,11 +119,16 @@ const AuthForm = ({ onSubmit, onGoogleSignIn }) => {
           border: "1px solid var(--color-border)",
         }}
       >
+        
+        {/* Title changes based on form mode */}
         <h2 className="text-3xl font-bold mb-6 text-center">
           {mode === "login" ? "Login" : "Register"}
         </h2>
 
+        {/* Main Form */}
         <form className="space-y-4" onSubmit={handleSubmit}>
+
+          {/* Registration extra fields: name and image */}
           {mode === "register" && (
             <>
               <input
@@ -97,6 +145,7 @@ const AuthForm = ({ onSubmit, onGoogleSignIn }) => {
                 }}
                 required
               />
+
               <input
                 type="url"
                 name="image"
@@ -113,6 +162,7 @@ const AuthForm = ({ onSubmit, onGoogleSignIn }) => {
             </>
           )}
 
+          {/* Email Input */}
           <input
             type="email"
             name="email"
@@ -128,6 +178,7 @@ const AuthForm = ({ onSubmit, onGoogleSignIn }) => {
             required
           />
 
+          {/* Password Input + error */}
           <div>
             <input
               type="password"
@@ -143,11 +194,14 @@ const AuthForm = ({ onSubmit, onGoogleSignIn }) => {
               }}
               required
             />
+
+            {/* Show password error only in register mode */}
             {mode === "register" && passwordError && (
               <p className="text-sm text-red-500 mt-1">{passwordError}</p>
             )}
           </div>
 
+          {/* Submit Button */}
           <button
             type="submit"
             className="w-full py-3 rounded-lg font-semibold mt-2 hover:opacity-90 transition"
@@ -157,30 +211,41 @@ const AuthForm = ({ onSubmit, onGoogleSignIn }) => {
           </button>
         </form>
 
+        {/* Switch between login/register */}
         <div className="text-center mt-4">
           {mode === "login" ? (
             <p className="text-sm">
               Don’t have an account?{" "}
-              <button type="button" onClick={() => setMode("register")} className="text-blue-500 font-medium hover:underline">
+              <button
+                type="button"
+                onClick={() => navigate("/register")}
+                className="text-blue-500 font-medium hover:underline"
+              >
                 Register here
               </button>
             </p>
           ) : (
             <p className="text-sm">
               Already have an account?{" "}
-              <button type="button" onClick={() => setMode("login")} className="text-blue-500 font-medium hover:underline">
+              <button
+                type="button"
+                onClick={() => navigate("/login")}
+                className="text-blue-500 font-medium hover:underline"
+              >
                 Login here
               </button>
             </p>
           )}
         </div>
 
+        {/* OR divider */}
         <div className="flex items-center my-4">
           <hr className="flex-1 border-t border-gray-400" />
           <span className="mx-2 text-sm">OR</span>
           <hr className="flex-1 border-t border-gray-400" />
         </div>
 
+        {/* Google Login Button */}
         <button
           onClick={onGoogleSignIn}
           className="w-full py-3 rounded-lg border flex items-center justify-center gap-2 font-semibold hover:bg-gray-100 transition"
@@ -199,5 +264,6 @@ const AuthForm = ({ onSubmit, onGoogleSignIn }) => {
     </div>
   );
 };
+
 
 export default AuthForm;

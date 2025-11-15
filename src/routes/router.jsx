@@ -14,6 +14,7 @@ import PetsAndSupplies from "../pages/PetsAndSupplies/PetsAndSupplies";
 import UpdateListing from "../pages/UpdateListing/UpdateListing";
 import Contact from "../components/common/Contact";
 import AboutUs from "../components/common/AboutUs";
+import Terms from "../components/common/Terms";
 
 const router = createBrowserRouter([
   {
@@ -72,6 +73,10 @@ const router = createBrowserRouter([
       {
         path: "/about",
         element: <AboutUs></AboutUs>
+      },
+      {
+        path: "/terms",
+        element: <Terms></Terms>
       }
     ],
   },

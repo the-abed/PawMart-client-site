@@ -29,7 +29,7 @@ const Footer = () => {
       {/* Legal */}
       <div>
         <h6 className="footer-title">Legal</h6>
-        <a href="#" className="link link-hover">Terms of Use</a>
+        <Link to="/terms" className="link link-hover">Terms of Service</Link>
         <a href="#" className="link link-hover">Privacy Policy</a>
       </div>
 

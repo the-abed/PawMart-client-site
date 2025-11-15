@@ -41,3 +41,8 @@
   --color-border: oklch(35% 0.03 260);
   --shadow-color: rgba(240, 170, 56, 0.3);
 }
+
+.myBtn{
+  background-color: var(--color-primary);
+  color: var(--color-base-100);
+}

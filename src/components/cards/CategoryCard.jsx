@@ -21,7 +21,7 @@ const CategoryCard = () => {
           <div className="text-primary mb-3 text-4xl">
             {cat.icon}
           </div>
-          <h3 className="font-semibold text-lg text-neutral-900 dark:text-neutral-100 transition-colors group-hover:text-primary">
+          <h3 className="font-semibold text-lg  transition-colors " style={{ color: "var(--color-text-primary)" }}>
             {cat.name}
           </h3>
         </Link>

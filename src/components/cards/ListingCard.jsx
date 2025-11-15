@@ -58,11 +58,11 @@ const ListingCard = ({ listing }) => {
          {/* See Details Button */}
         <button
           onClick={handleDetailsClick}
-          className="mt-auto px-4 py-2 rounded-lg font-semibold"
-          style={{
-            backgroundColor: "var(--color-primary)",
-            color: "var(--color-text-primary)",
-          }}
+          className="mt-auto px-4 py-2 rounded-lg font-semibold myBtn"
+          // style={{
+          //   backgroundColor: "var(--color-primary)",
+          //   color: "var(--color-text-primary)",
+          // }}
         >
           See Details
         </button>
