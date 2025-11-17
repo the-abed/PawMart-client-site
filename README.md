@@ -9,7 +9,7 @@
 
 **PawMart** is a community-driven platform where pet owners, breeders, and shops can list pets for adoption or sell pet-related products (food, toys, accessories, etc.). Buyers and adopters can browse, contact, and order directly.
 
-💻 **Live Demo:** [https://paw-mart.vercel.app](https://paw-mart.vercel.app)
+💻 **Live Demo:** [https://paw-mart-ef03f.web.app]
 
 ---
 
@@ -25,6 +25,7 @@
 * 📞 Contact page with social links
 * 🖥 Responsive UI for mobile and desktop
 * ⚡ 404 Error Page and redirects
+* 🚦 Dynamic page title per route 
 
 ---
 
@@ -33,7 +34,7 @@
 * **Frontend:** React, TailwindCSS, react-icons, react-hot-toast, react-simple-typewriter
 * **Backend:** Node.js, Express
 * **Database:** MongoDB
-* **Deployment:** Vercel / Netlify (Frontend), Vercel / Heroku (Backend)
+* **Deployment:** Firebase / Netlify (Frontend), Vercel (Backend)
 
 ---
 
@@ -85,7 +86,7 @@ cd ../client
 npm start
 ```
 
-Open your browser at [http://localhost:3000](http://localhost:3000)
+Open your browser at [https://paw-mart-ef03f.web.app]
 
 ---
 
@@ -103,14 +104,13 @@ Open your browser at [http://localhost:3000](http://localhost:3000)
 
 ## Screenshots
 
-**Home Page**
-![Home](./src/assets/image.png)
+**Home Page (Light Mode)**
+![Home](./src/assets/PawMart_Home%20(5).png)
 
-**Listings Page**
-![Listings](./assets/screenshots/listings.png)
+**Home Page (Dark Mode)**
+![Home](./src/assets/PawMart_Home_Dark.png)
 
-**My Orders Page**
-![Orders](./assets/screenshots/orders.png)
+
 
 ---
 
