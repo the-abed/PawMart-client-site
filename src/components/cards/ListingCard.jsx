@@ -43,9 +43,9 @@ const ListingCard = ({ listing }) => {
 
        
         {/* Description */}
-        <p className="text-sm mb-4" style={{ color: "var(--color-text-primary)" }}>
+        {/* <p className="text-sm mb-4" style={{ color: "var(--color-text-primary)" }}>
           {listing.description}
-        </p>
+        </p> */}
         <hr className="text-gray-400" />
 
        <div className="flex justify-between items-center mt-2">

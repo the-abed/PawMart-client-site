@@ -13,7 +13,8 @@ const RecentListing = () => {
     fetch("https://paw-mart-server-lyart.vercel.app/recent-listings")
       .then((res) => res.json())
       .then((data) => {
-        setListings(data);
+        const limitedListings = data.slice(0, 4);
+        setListings(limitedListings);
         setLoading(false);
       })
       .catch((err) => {
@@ -39,7 +40,7 @@ const RecentListing = () => {
                       delaySpeed={1500}
                     />
         </h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-6 ">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 p-6 ">
         {listings.map((listing) => (
           <ListingCard key={listing._id} listing={listing} />
         ))}

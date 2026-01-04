@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { NavLink } from "react-router";
+import { Link, NavLink } from "react-router";
 import logo from "../../assets/PawMart.png";
 import ThemeController from "./ThemeController";
 import { AuthContext } from "../../contexts/AuthContext";
@@ -50,9 +50,12 @@ const Navbar = () => {
       style={{ color: "var(--color-text-primary)" }}
     >
       {/* Logo */}
+      <Link to="/">
+
       <div className="flex items-center gap-2">
         <img src={logo} alt="PawMart Logo" className="w-32 sm:w-40" />
       </div>
+      </Link>
 
       {/* Desktop Menu */}
       <ul className="hidden lg:flex menu menu-horizontal gap-5 text-primary font-medium">

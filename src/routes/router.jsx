@@ -32,11 +32,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/listing/:id",
-        element: (
-          <PrivateRoute>
-            <ListingDetails />
-          </PrivateRoute>
-        ),
+        element: <ListingDetails />,
       },
       {
         path: "/add-listing",
@@ -64,20 +60,20 @@ const router = createBrowserRouter([
       },
       {
         path: "/update-listing/:id",
-        element: <UpdateListing></UpdateListing>
+        element: <UpdateListing></UpdateListing>,
       },
       {
         path: "/contact",
-        element: <Contact></Contact>
+        element: <Contact></Contact>,
       },
       {
         path: "/about",
-        element: <AboutUs></AboutUs>
+        element: <AboutUs></AboutUs>,
       },
       {
         path: "/terms",
-        element: <Terms></Terms>
-      }
+        element: <Terms></Terms>,
+      },
     ],
   },
 ]);

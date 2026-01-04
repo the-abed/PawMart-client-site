@@ -18,7 +18,7 @@ const AboutUs = () => {
               words={["About PawMart"]}
               loop={1}
               cursor
-              cursorStyle="|"
+              cursorStyle=""
               typeSpeed={100}
               deleteSpeed={50}
               delaySpeed={1500}
