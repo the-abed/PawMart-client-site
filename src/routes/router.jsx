@@ -15,6 +15,8 @@ import UpdateListing from "../pages/UpdateListing/UpdateListing";
 import Contact from "../components/common/Contact";
 import AboutUs from "../components/common/AboutUs";
 import Terms from "../components/common/Terms";
+import DashboardLayout from "../pages/dashboard/DashboardLayout";
+import DashboardHome from "../pages/dashboard/DashboardHome";
 
 const router = createBrowserRouter([
   {
@@ -42,22 +44,7 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
-      {
-        path: "/my-listings",
-        element: (
-          <PrivateRoute>
-            <MyListings />
-          </PrivateRoute>
-        ),
-      },
-      {
-        path: "/my-orders",
-        element: (
-          <PrivateRoute>
-            <MyOrders />
-          </PrivateRoute>
-        ),
-      },
+     
       {
         path: "/update-listing/:id",
         element: <UpdateListing></UpdateListing>,
@@ -76,6 +63,26 @@ const router = createBrowserRouter([
       },
     ],
   },
+  {
+    path: "/dashboard",
+    element: <PrivateRoute>
+      <DashboardLayout></DashboardLayout>
+    </PrivateRoute>,
+    children: [
+      {
+        index: true,
+        Component: DashboardHome
+      },
+      {
+        path: "/dashboard/my-listings",
+        element: <MyListings></MyListings>
+      },
+      {
+        path: "/dashboard/my-orders",
+        element: <MyOrders></MyOrders>
+      }
+    ]
+  }
 ]);
 
 export default router;

@@ -29,8 +29,7 @@ const Navbar = () => {
       {commonLinks}
       <li><NavLink to="/dashboard" onClick={() => setMenuOpen(false)}>Dashboard</NavLink></li>
       <li><NavLink to="/add-listing" onClick={() => setMenuOpen(false)}>Add Listing</NavLink></li>
-      <li><NavLink to="/my-listings" onClick={() => setMenuOpen(false)}>My Listings</NavLink></li>
-      <li><NavLink to="/my-orders" onClick={() => setMenuOpen(false)}>My Orders</NavLink></li>
+      <li><NavLink to="/about" onClick={() => setMenuOpen(false)}>About</NavLink></li>
     </>
   );
 
@@ -56,7 +55,7 @@ const Navbar = () => {
 
         {/* ADVANCED MENU: Profile Dropdown (Logged In) */}
         {user ? (
-          <div className="dropdown dropdown-end">
+          <div className="dropdown dropdown-end z-50">
             <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar border border-base-300">
               <div className="w-10 rounded-full">
                 <img 

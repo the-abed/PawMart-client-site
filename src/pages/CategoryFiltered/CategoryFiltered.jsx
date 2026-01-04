@@ -40,7 +40,7 @@ const CategoryFiltered = () => {
     );
 
   return (
-    <div className="grid md:grid-cols-3 gap-6 p-4 w-10/12 mx-auto my-8">
+    <div className="grid px-4 md:grid-cols-3 gap-6 p-4 w-11/12 mx-auto my-8">
       {listings.map((listing) => (
        <ListingCard key={listing._id} listing={listing}></ListingCard>
       ))}

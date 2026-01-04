@@ -28,7 +28,7 @@ const RecentListing = () => {
   }
 
   return (
-    <div className="py-16  md:px-16 my-12 w-11/12 mx-auto">
+    <div className="py-10  md:px-16 my-12 w-11/12 mx-auto">
         <h2 className="text-5xl font-bold mb-4 text-center text-primary">
          <Typewriter
                       words={[`Recent  Listings`]}

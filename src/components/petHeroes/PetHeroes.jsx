@@ -30,7 +30,7 @@ const heroes = [
 
 const PetHeroes = () => {
   return (
-    <section className=" py-16 px-4 md:px-16 my-12 w-11/12 mx-auto "
+    <section className=" py-10 px-4 md:px-16 my-12 w-11/12 mx-auto "
     >
       <div className="text-center mb-12">
         <p className="text-primary font-medium mb-2">Meet Our Pet Heroes 🐕‍🦺</p>
