@@ -1,22 +1,16 @@
 import React from "react";
 import { Link, NavLink, Outlet } from "react-router";
 import { CiCreditCard1, CiDeliveryTruck } from "react-icons/ci";
-import { FaTasks } from "react-icons/fa";
-import { AiOutlineCheckCircle } from "react-icons/ai";
-import { FaAddressCard, FaMotorcycle } from "react-icons/fa6";
-import {
-  MdAssignmentInd,
-  MdOutlineDirectionsBike,
-  MdOutlineManageAccounts,
-} from "react-icons/md";
 import logo from "../../assets/PawMart.png"
+import { RiListIndefinite } from "react-icons/ri";
+import { CiShoppingCart } from "react-icons/ci";
 
 
 const DashboardLayout = () => {
   
   return (
     <div>
-      <div className="drawer lg:drawer-open">
+      <div className="drawer lg:drawer-open"  style={{ color: "var(--color-text-primary)" }}>
         <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content">
           {/* Navbar */}
@@ -60,7 +54,7 @@ const DashboardLayout = () => {
           <label
             htmlFor="my-drawer-4"
             aria-label="close sidebar"
-            className="drawer-overlay"
+            className="drawer-overlay "
           ></label>
           <div className="flex min-h-full flex-col items-start bg-base-200 is-drawer-close:w-14 is-drawer-open:w-64">
             {/* Sidebar content here */}
@@ -96,7 +90,7 @@ const DashboardLayout = () => {
                   className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
                   data-tip="My Listings"
                 >
-                  <CiDeliveryTruck className="inline-block size-4.5" />
+                  <RiListIndefinite className="inline-block size-4.5" />
                   <span className="is-drawer-close:hidden">My Listings</span>
                 </NavLink>
               </li>
@@ -106,7 +100,7 @@ const DashboardLayout = () => {
                   className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
                   data-tip="My Orders"
                 >
-                  <CiCreditCard1 className="inline-block size-4.5" />
+                  <CiShoppingCart className="inline-block size-4.5" />
                   <span className="is-drawer-close:hidden">
                     My Orders
                   </span>
