@@ -14,7 +14,7 @@ const DashboardHome = () => {
       .then((data) => setStats(data));
   }, []);
 
-  if (!stats) return <div className="p-10 text-center">Loading Dashboard...</div>;
+  if (!stats) return <div className="p-10 text-center">Nothing to show .</div>;
 
   return (
     <div className="p-6 bg-base-200 min-h-screen">
